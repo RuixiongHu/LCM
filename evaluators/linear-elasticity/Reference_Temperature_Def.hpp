@@ -102,11 +102,11 @@ namespace LCM {
 
     // current time
     const RealType t = workset.current_time;
-    /*
+    
     if (t==0.0){
       for (std::size_t cell = 0; cell < workset.numCells; ++cell){
 	 for (std::size_t qp = 0; qp < num_qps_; ++qp){
-	  if(psi1_old(cell,qp)>0.98){
+	  if(psi1_old(cell,qp)>0.50){
 	    reference_temperature_(cell,qp)=  std::max(melting_temperature_, temperature_(cell,qp));
 	    reference_temperature_bar_ = std::max(melting_temperature_, temperature_(cell,qp));
 	    //reference_temperature_old(cell,qp)=  reference_temperature_bar_;
@@ -118,14 +118,17 @@ namespace LCM {
 	}
       }
     }
+    
     else {
       for (std::size_t cell = 0; cell < workset.numCells; ++cell){
 	for (std::size_t qp = 0; qp < num_qps_; ++qp){
-	  reference_temperature_(cell,qp)= reference_temperature_old(cell,qp);
+	  std::cout<<"time!=0, false!!!!!!\n";
+	  //reference_temperature_(cell,qp)= reference_temperature_old(cell,qp);
 	}
       }
     }
-    */ 
+     
+    /*
     if (t==0.0){
       for (std::size_t cell = 0; cell < workset.numCells; ++cell){
         for (std::size_t qp = 0; qp < num_qps_; ++qp){
@@ -139,7 +142,7 @@ namespace LCM {
         }
       }
     }
-
+    */
   
   }
   //**********************************************************************

@@ -77,10 +77,8 @@ namespace LCM {
   void Psi1<EvalT, Traits>::
   evaluateFields(typename Traits::EvalData workset)
   {
-        //std::cout << "psi1 has started\n" ; 
-                //std::cout << "initialPsi1"<< constant_value_ << "\n" ;
 
-    std::cout<<"this is in Psi1, has "<< workset.numCells << " cells\n";
+    //std::cout<<"this is in Psi1, has "<< workset.numCells << " cells\n";
     //grab old psi value
     Albany::MDArray psi1_old = (*workset.stateArrayPtr)[psi1_Name_];
     
@@ -88,16 +86,14 @@ namespace LCM {
     const RealType t = workset.current_time;
     //****************************************************************
     // for actual simluation
-    /*
+    
     if (t==0.0){
-      auto vector_space = workset.disc->getVectorSpace();
-      Teuchos::RCP<Thyra_Vector> my_field = Thyra::createMember(vector_space);
       Teuchos::RCP<Albany::AbstractDiscretization> discPtr = workset.disc;
       auto APFDisc_ptr = Teuchos::rcp_dynamic_cast<Albany::APFDiscretization>(discPtr);
       apf::Mesh2* m = APFDisc_ptr -> getMesh();
       apf::Field* f = m -> findField("Psi1") ;
       if (f==NULL){
-	std::cout<<"Psi1 field not found! Keep the old instead\n";
+	//std::cout<<"Psi1 field not found! Keep the old instead\n";
 	for (std::size_t cell = 0; cell < workset.numCells; ++cell){
 	  for (std::size_t qp = 0; qp < num_qps_; ++qp){
 	    psi1_(cell,qp) = psi1_old(cell,qp);
@@ -120,11 +116,11 @@ namespace LCM {
       }      
     }
       
-  */
+  
 
  
     // do this only at the equilibration step
-
+    /*
     //original set up
     if (t == 0.0){
         // initializing psi_ values 
@@ -134,7 +130,7 @@ namespace LCM {
 	        }
 	    }
     }
-    
+    */
 
   
   }

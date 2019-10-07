@@ -73,16 +73,14 @@ namespace LCM {
     const RealType t = workset.current_time;
     //***********************************************************
     // actual simulation
-    /*
+    
     if (t==0.0){
-      auto vector_space = workset.disc->getVectorSpace();
-      Teuchos::RCP<Thyra_Vector> my_field = Thyra::createMember(vector_space);
       Teuchos::RCP<Albany::AbstractDiscretization> discPtr = workset.disc;
       auto APFDisc_ptr = Teuchos::rcp_dynamic_cast<Albany::APFDiscretization>(discPtr);
       apf::Mesh2* m = APFDisc_ptr -> getMesh();
       apf::Field* f = m -> findField("Temperature_old") ;
       if (f==NULL){
-	std::cout<<"Temperature field not found! Keep the old instead\n";
+	//std::cout<<"Temperature field not found! Keep the old instead\n";
 	for (std::size_t cell = 0; cell < workset.numCells; ++cell){
 	  for (std::size_t qp = 0; qp < num_qps_; ++qp){
 	    if (temperature_old(cell,qp)<5){  // if using the small scale, then convert it back to kelvin 
@@ -109,8 +107,8 @@ namespace LCM {
 	}
       }      
     }
-    */
-
+    
+    /*
         // defining temperature_
         for (std::size_t cell = 0; cell < workset.numCells; ++cell){
             for (std::size_t qp = 0; qp < num_qps_; ++qp){
@@ -119,7 +117,7 @@ namespace LCM {
 
 	        }
 	    }
-    
+    */
   
   //std::cout << "psi1 has been finished\n" ; 
   
